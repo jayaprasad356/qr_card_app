@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "600724822343",
+    "project_id": "qr-card-fb86c",
+    "storage_bucket": "qr-card-fb86c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600724822343:android:c34140a55edf8e3a9d1462",
+        "android_client_info": {
+          "package_name": "com.gmwapp.slv_qr_card"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTkePImwhSttUfwIQYq_5nKPTlHRRB6XU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/Home"
+        android:icon="@drawable/menu_home"
+        android:title="@string/home" />
+
+    <item
+        android:id="@+id/plan"
+        android:icon="@drawable/menu_job"
+        android:title="@string/plan" />
+
+<!--    <item-->
+<!--        android:id="@+id/Wallet"-->
+<!--        android:icon="@drawable/menu_wallet"-->
+<!--        android:title="Wallet" />-->
+
+    <item
+        android:visible="false"
+        android:id="@+id/Team"
+        android:icon="@drawable/menu_job"
+        android:title="@string/outsource_job" />
+
+    <item
+        android:id="@+id/Profile"
+        android:icon="@drawable/menu_user"
+        android:title="@string/profile"
+        />
+</menu>

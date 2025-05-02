@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="ThemeOverlay.AppTheme.TextInputEditText.Outlined" parent="ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="colorControlActivated">@color/primaryColor</item>
+        <item name="android:enabled">true</item>
+    </style>
+
+
+    <!-- Custom style for a button -->
+
+    <!-- Custom style for calendar date -->
+
+    <!-- Custom style for calendar week day -->
+
+    <!-- Theme overlay for TextInputEditText Outlined style -->
+<!--    <style name="ThemeOverlay.AppTheme.TextInputEditText.Outlined" parent="">-->
+<!--        <item name="colorControlActivated">@color/primaryColor</item>-->
+<!--        <item name="android:enabled">@color/primaryColor</item>-->
+
+
+<!--    </style>-->
+
+    <style name="BottomNavTextStyle">
+        <item name="android:fontFamily">@font/poppins_medium</item> <!-- Custom font -->
+        <item name="android:textSize">12sp</item> <!-- Adjust size -->
+        <item name="android:textStyle">bold</item> <!-- Normal, Bold, Italic -->
+    </style>
+
+    <style name="TopCornersRounded" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">30dp</item>
+        <item name="cornerSizeTopRight">30dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+    <declare-styleable name="TitleAndContentText">
+        <attr name="title" format="string" />
+        <attr name="description" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="RichTestWidget">
+        <attr name="rtw_title" format="string" />
+        <attr name="rtw_onNumber" format="string" />
+        <attr name="rtw_subTitle" format="string" />
+        <attr name="rtw_description" format="string" />
+    </declare-styleable>
+
+</resources>

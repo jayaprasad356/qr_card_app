@@ -1,0 +1,1223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/BGColorBlue">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/rlHeader">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_14sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            app:cardCornerRadius="@dimen/_15sdp"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardUseCompatPadding="false">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="@dimen/_15sdp">
+
+                                <LinearLayout
+                                    android:id="@+id/llProfile"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/tvTitle"
+                                    android:orientation="vertical">
+
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="@dimen/_10sdp">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/ivProfile"
+                                            android:layout_width="@dimen/_30sdp"
+                                            android:layout_height="@dimen/_30sdp"
+                                            android:background="@drawable/profile"
+                                            android:layout_centerVertical="true"/>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="@dimen/_10sdp"
+                                            android:layout_toRightOf="@+id/ivProfile"
+                                            android:orientation="vertical">
+
+
+                                            <TextView
+                                                android:id="@+id/tvName"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center"
+                                                android:fontFamily="@font/poppins_medium"
+                                                android:text=""
+                                                android:textColor="@color/textColor"
+                                                android:textSize="@dimen/_12sdp" />
+
+                                            <TextView
+                                                android:id="@+id/tvMobile"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_below="@+id/tvName"
+                                                android:fontFamily="@font/poppins_medium"
+                                                android:text=""
+                                                android:textColor="@color/textColor"
+                                                android:textSize="@dimen/_10sdp" />
+
+
+                                        </LinearLayout>
+
+                                    </RelativeLayout>
+
+                                    <com.google.android.material.card.MaterialCardView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="@color/primaryColor"
+                                        app:cardCornerRadius="@dimen/_15sdp"
+                                        app:cardBackgroundColor="@color/white"
+                                        app:cardUseCompatPadding="false"
+                                        android:padding="@dimen/_15sdp">
+
+                                        <LinearLayout
+                                            android:id="@+id/rlMyTeam"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@color/primaryColor"
+                                            android:orientation="vertical"
+                                            android:padding="@dimen/_15sdp">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:orientation="horizontal">
+
+                                                <LinearLayout
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:orientation="vertical"
+                                                    android:layout_marginRight="@dimen/_5sdp">
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:fontFamily="@font/poppins_regular"
+                                                        android:gravity="start"
+                                                        android:text="@string/total_work_earnings"
+                                                        android:textColor="@color/white"
+                                                        android:textSize="@dimen/_12sdp" />
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:fontFamily="@font/poppins_regular"
+                                                        android:gravity="start"
+                                                        android:text="@string/total_refer_earnings"
+                                                        android:textColor="@color/white"
+                                                        android:textSize="@dimen/_12sdp" />
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:fontFamily="@font/poppins_regular"
+                                                        android:gravity="start"
+                                                        android:text="@string/wallet_balance"
+                                                        android:textColor="@color/white"
+                                                        android:textSize="@dimen/_12sdp" />
+
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:orientation="vertical"
+                                                    android:layout_marginRight="@dimen/_5sdp">
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:text="-"
+                                                        android:fontFamily="@font/poppins_bold"
+                                                        android:textColor="@color/white"
+                                                        android:textSize="@dimen/_12sdp" />
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:text="-"
+                                                        android:fontFamily="@font/poppins_bold"
+                                                        android:textColor="@color/white"
+                                                        android:textSize="@dimen/_12sdp" />
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:text="-"
+                                                        android:fontFamily="@font/poppins_bold"
+                                                        android:textColor="@color/white"
+                                                        android:textSize="@dimen/_12sdp" />
+
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_weight="1"
+                                                    android:layout_width="0dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:orientation="vertical">
+
+                                                    <TextView
+                                                        android:id="@+id/tvTotalCodesIncome"
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:fontFamily="@font/poppins_semibold"
+                                                        android:gravity="end"
+                                                        android:text=""
+                                                        android:textColor="@color/black"
+                                                        android:textSize="@dimen/_12sdp" />
+
+                                                    <TextView
+                                                        android:id="@+id/tvReferralIncome"
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:fontFamily="@font/poppins_semibold"
+                                                        android:gravity="end"
+                                                        android:text=""
+                                                        android:textColor="@color/black"
+                                                        android:textSize="@dimen/_12sdp" />
+
+                                                    <TextView
+                                                        android:id="@+id/tvWalletBalance"
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:fontFamily="@font/poppins_semibold"
+                                                        android:gravity="end"
+                                                        android:text=""
+                                                        android:textColor="@color/black"
+                                                        android:textSize="@dimen/_12sdp" />
+
+                                                </LinearLayout>
+
+                                            </LinearLayout>
+
+<!--                                            <LinearLayout-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="wrap_content"-->
+<!--                                                android:orientation="horizontal">-->
+
+<!--&lt;!&ndash;                                                <RelativeLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                                                    android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                    android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                    android:layout_weight="1">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                                                    <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        android:orientation="vertical">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                                                        <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            android:id="@+id/tvPlanActivate"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            android:fontFamily="@font/poppins_semibold"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            android:gravity="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            android:text=""&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            android:textColor="@color/black"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            android:textSize="@dimen/_12sdp" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;                                                        <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            android:fontFamily="@font/poppins_regular"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            android:gravity="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            android:text="@string/plan_activate"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            android:textColor="@color/white"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            android:textSize="@dimen/_10sdp" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;                                                    </LinearLayout>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;                                                </RelativeLayout>&ndash;&gt;-->
+<!--                                                <RelativeLayout-->
+<!--                                                    android:layout_width="match_parent"-->
+<!--                                                    android:layout_height="wrap_content"-->
+<!--                                                    android:layout_weight="1">-->
+
+<!--                                                    <LinearLayout-->
+<!--                                                        android:layout_width="match_parent"-->
+<!--                                                        android:layout_height="wrap_content"-->
+<!--                                                        android:orientation="vertical">-->
+
+<!--                                                        <TextView-->
+<!--                                                            android:id="@+id/tvTotalCodesIncome"-->
+<!--                                                            android:layout_width="match_parent"-->
+<!--                                                            android:layout_height="wrap_content"-->
+<!--                                                            android:fontFamily="@font/poppins_semibold"-->
+<!--                                                            android:gravity="center"-->
+<!--                                                            android:text=""-->
+<!--                                                            android:textColor="@color/black"-->
+<!--                                                            android:textSize="@dimen/_12sdp" />-->
+
+<!--                                                        <TextView-->
+<!--                                                            android:layout_width="match_parent"-->
+<!--                                                            android:layout_height="wrap_content"-->
+<!--                                                            android:fontFamily="@font/poppins_regular"-->
+<!--                                                            android:gravity="center"-->
+<!--                                                            android:text="@string/total_codes_income"-->
+<!--                                                            android:textColor="@color/white"-->
+<!--                                                            android:textSize="@dimen/_10sdp" />-->
+
+<!--                                                    </LinearLayout>-->
+
+
+<!--                                                </RelativeLayout>-->
+
+<!--                                                &lt;!&ndash;                                <RelativeLayout&ndash;&gt;-->
+<!--                                                &lt;!&ndash;                                    android:layout_width="1dp"&ndash;&gt;-->
+<!--                                                &lt;!&ndash;                                    android:layout_height="match_parent"&ndash;&gt;-->
+<!--                                                &lt;!&ndash;                                    android:background="@color/black" />&ndash;&gt;-->
+
+<!--                                                <RelativeLayout-->
+<!--                                                    android:layout_width="match_parent"-->
+<!--                                                    android:layout_height="wrap_content"-->
+<!--                                                    android:layout_weight="1">-->
+
+<!--                                                    <LinearLayout-->
+<!--                                                        android:layout_width="match_parent"-->
+<!--                                                        android:layout_height="wrap_content"-->
+<!--                                                        android:orientation="vertical">-->
+
+<!--                                                        <TextView-->
+<!--                                                            android:id="@+id/tvReferralIncome"-->
+<!--                                                            android:layout_width="match_parent"-->
+<!--                                                            android:layout_height="wrap_content"-->
+<!--                                                            android:fontFamily="@font/poppins_semibold"-->
+<!--                                                            android:gravity="center"-->
+<!--                                                            android:text=""-->
+<!--                                                            android:textColor="@color/black"-->
+<!--                                                            android:textSize="@dimen/_12sdp" />-->
+
+<!--                                                        <TextView-->
+<!--                                                            android:layout_width="match_parent"-->
+<!--                                                            android:layout_height="wrap_content"-->
+<!--                                                            android:fontFamily="@font/poppins_regular"-->
+<!--                                                            android:gravity="center"-->
+<!--                                                            android:text="@string/referral_income"-->
+<!--                                                            android:textColor="@color/white"-->
+<!--                                                            android:textSize="@dimen/_10sdp" />-->
+
+<!--                                                    </LinearLayout>-->
+
+
+<!--                                                </RelativeLayout>-->
+
+
+<!--                                            </LinearLayout>-->
+
+<!--                                            <LinearLayout-->
+<!--                                                android:id="@+id/llWithdraw"-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="wrap_content"-->
+<!--                                                android:orientation="horizontal"-->
+<!--                                                android:weightSum="3">-->
+
+
+<!--                                                <RelativeLayout-->
+<!--                                                    android:layout_width="match_parent"-->
+<!--                                                    android:layout_height="wrap_content"-->
+<!--                                                    android:layout_weight="1">-->
+
+<!--                                                    <LinearLayout-->
+<!--                                                        android:layout_width="match_parent"-->
+<!--                                                        android:layout_height="wrap_content"-->
+<!--                                                        android:orientation="vertical">-->
+
+<!--                                                        <TextView-->
+<!--                                                            android:id="@+id/tvTotalEarning"-->
+<!--                                                            android:layout_width="match_parent"-->
+<!--                                                            android:layout_height="wrap_content"-->
+<!--                                                            android:fontFamily="@font/poppins_semibold"-->
+<!--                                                            android:gravity="center"-->
+<!--                                                            android:text=""-->
+<!--                                                            android:textColor="@color/black"-->
+<!--                                                            android:textSize="@dimen/_12sdp" />-->
+
+<!--                                                        <TextView-->
+<!--                                                            android:layout_width="match_parent"-->
+<!--                                                            android:layout_height="wrap_content"-->
+<!--                                                            android:fontFamily="@font/poppins_regular"-->
+<!--                                                            android:gravity="center"-->
+<!--                                                            android:text="@string/total_earning"-->
+<!--                                                            android:textColor="@color/white"-->
+<!--                                                            android:textSize="@dimen/_10sdp" />-->
+
+<!--                                                    </LinearLayout>-->
+
+
+<!--                                                </RelativeLayout>-->
+
+<!--                                                <RelativeLayout-->
+<!--                                                    android:layout_width="match_parent"-->
+<!--                                                    android:layout_height="wrap_content"-->
+<!--                                                    android:layout_weight="1">-->
+
+<!--                                                    <LinearLayout-->
+<!--                                                        android:layout_width="match_parent"-->
+<!--                                                        android:layout_height="wrap_content"-->
+<!--                                                        android:orientation="vertical">-->
+
+<!--                                                        <TextView-->
+<!--                                                            android:id="@+id/tvTodayEarning"-->
+<!--                                                            android:layout_width="match_parent"-->
+<!--                                                            android:layout_height="wrap_content"-->
+<!--                                                            android:fontFamily="@font/poppins_semibold"-->
+<!--                                                            android:gravity="center"-->
+<!--                                                            android:text=""-->
+<!--                                                            android:textColor="@color/black"-->
+<!--                                                            android:textSize="@dimen/_12sdp" />-->
+
+<!--                                                        <TextView-->
+<!--                                                            android:layout_width="match_parent"-->
+<!--                                                            android:layout_height="wrap_content"-->
+<!--                                                            android:fontFamily="@font/poppins_regular"-->
+<!--                                                            android:gravity="center"-->
+<!--                                                            android:text="@string/today_s_earning"-->
+<!--                                                            android:textColor="@color/white"-->
+<!--                                                            android:textSize="@dimen/_10sdp" />-->
+
+<!--                                                    </LinearLayout>-->
+
+
+<!--                                                </RelativeLayout>-->
+
+<!--                                                <RelativeLayout-->
+<!--                                                    android:layout_width="match_parent"-->
+<!--                                                    android:layout_height="wrap_content"-->
+<!--                                                    android:layout_weight="1">-->
+
+<!--                                                    <LinearLayout-->
+<!--                                                        android:layout_width="match_parent"-->
+<!--                                                        android:layout_height="wrap_content"-->
+<!--                                                        android:orientation="vertical">-->
+
+<!--                                                        <TextView-->
+<!--                                                            android:id="@+id/tvWalletBalance"-->
+<!--                                                            android:layout_width="match_parent"-->
+<!--                                                            android:layout_height="wrap_content"-->
+<!--                                                            android:fontFamily="@font/poppins_semibold"-->
+<!--                                                            android:gravity="center"-->
+<!--                                                            android:text=""-->
+<!--                                                            android:textColor="@color/black"-->
+<!--                                                            android:textSize="@dimen/_12sdp" />-->
+
+<!--                                                        <TextView-->
+<!--                                                            android:layout_width="match_parent"-->
+<!--                                                            android:layout_height="wrap_content"-->
+<!--                                                            android:fontFamily="@font/poppins_regular"-->
+<!--                                                            android:gravity="center"-->
+<!--                                                            android:text="@string/wallet_balance"-->
+<!--                                                            android:textColor="@color/white"-->
+<!--                                                            android:textSize="@dimen/_10sdp" />-->
+
+<!--                                                    </LinearLayout>-->
+
+
+<!--                                                </RelativeLayout>-->
+
+
+<!--                                            </LinearLayout>-->
+
+                                        </LinearLayout>
+
+                                    </com.google.android.material.card.MaterialCardView>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        </RelativeLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/rlHeader">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginBottom="@dimen/_24sdp"
+                    app:cardCornerRadius="@dimen/_15sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardUseCompatPadding="false">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_15sdp">
+
+                        <RelativeLayout
+                            android:gravity="center"
+                            android:id="@+id/rlInvite"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp">
+
+                            <LinearLayout
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp">
+
+                                <ImageView
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/_4sdp"
+                                    android:background="@drawable/ic_invite"
+                                    android:backgroundTint="@color/primaryColor" />
+
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="@dimen/_20sdp"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:text="Refer &amp; Earn"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12sdp" />
+
+
+                                <ImageView
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/_4sdp" android:background="@drawable/ic_back" />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_10sdp" />
+
+                        <RelativeLayout
+                            android:gravity="center"
+                            android:id="@+id/rlRefers"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp">
+
+                            <LinearLayout
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp">
+
+                                <ImageView
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/_4sdp"
+                                    android:background="@drawable/refer_ic"
+                                    android:backgroundTint="@color/primaryColor"/>
+
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="@dimen/_20sdp"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:text="My Refers"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12sdp" />
+
+
+                                <ImageView
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/_4sdp" android:background="@drawable/ic_back" />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <Space
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_10sdp" />
+
+                        <RelativeLayout
+                            android:visibility="gone"
+                            android:gravity="center"
+                            android:id="@+id/rlLevelIncome"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp">
+
+                            <LinearLayout
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp">
+
+                                <ImageView
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/_4sdp"
+                                    android:background="@drawable/ic_team"
+                                    android:backgroundTint="@color/primaryColor"/>
+
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="@dimen/_20sdp"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:text="@string/level_income"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12sdp" />
+
+
+                                <ImageView
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/_4sdp" android:background="@drawable/ic_back" />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <Space
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_10sdp" />
+
+                        <RelativeLayout
+                            android:visibility="gone"
+                            android:gravity="center"
+                            android:id="@+id/rlGrowWithUs"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp">
+
+                            <LinearLayout
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp">
+
+                                <ImageView
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/_4sdp"
+                                    android:background="@drawable/grow_ic"
+                                    android:backgroundTint="@color/primaryColor"/>
+
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="@dimen/_20sdp"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:text="@string/grow_with_us"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12sdp" />
+
+
+                                <ImageView
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/_4sdp" android:background="@drawable/ic_back" />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_10sdp" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlWithdraw"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp">
+
+
+
+                            <LinearLayout
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp">
+
+                                <ImageView
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/_4sdp"
+                                    android:background="@drawable/withdraw_ic"
+                                    android:backgroundTint="@color/primaryColor" />
+
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="@dimen/_20sdp"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:text="Withdrawal"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12sdp" />
+
+
+                                <ImageView
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/_4sdp"
+                                    android:background="@drawable/ic_back" />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_10sdp"
+                            android:visibility="gone"/>
+
+                        <RelativeLayout
+                            android:visibility="gone"
+                            android:id="@+id/rlApplyLeave"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp">
+
+
+
+                            <LinearLayout
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp">
+
+                                <ImageView
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/_4sdp"
+                                    android:background="@drawable/leave_letter_ic"
+                                    android:backgroundTint="@color/primaryColor"/>
+
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="@dimen/_20sdp"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:text="Apply Leave"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12sdp" />
+
+
+                                <ImageView
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/_4sdp"
+                                    android:background="@drawable/ic_back" />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+<!--                        <Space-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="@dimen/_10sdp" />-->
+
+
+                        <RelativeLayout
+                            android:id="@+id/rlwithdrawhistory"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:visibility="gone">
+
+                            <LinearLayout
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp">
+
+                                <ImageView
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/_4sdp"
+                                    android:background="@drawable/ic_paper" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="@dimen/_20sdp"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:text="@string/withdrawal_history"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12sdp" />
+
+
+                                <ImageView
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/_4sdp"
+                                    android:background="@drawable/ic_back" />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_10sdp" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlTransectionHistory"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp">
+
+                            <LinearLayout
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp">
+
+                                <ImageView
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/_4sdp"
+                                    android:background="@drawable/ic_transaction"
+                                    android:backgroundTint="@color/primaryColor" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="@dimen/_20sdp"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:text="@string/transaction_history"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12sdp" />
+
+
+                                <ImageView
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/_4sdp"
+                                    android:background="@drawable/ic_back" />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_10sdp" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlUpdateprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp">
+
+                            <LinearLayout
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp">
+
+                                <ImageView
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/_4sdp"
+                                    android:background="@drawable/ic_user"
+                                    android:backgroundTint="@color/primaryColor" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="@dimen/_20sdp"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:text="My Profile"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12sdp" />
+
+
+                                <ImageView
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/_4sdp"
+                                    android:background="@drawable/ic_back" />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_10sdp" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlChangepassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp">
+
+                            <LinearLayout
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp">
+
+                                <ImageView
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/_4sdp"
+                                    android:background="@drawable/lock_ic"
+                                    android:backgroundTint="@color/primaryColor" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="@dimen/_20sdp"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:text="Set Password"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12sdp" />
+
+                                <ImageView
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/_4sdp"
+                                    android:background="@drawable/ic_back" />
+
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_10sdp" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlUpdateBank"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp">
+
+                            <LinearLayout
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp">
+
+                                <ImageView
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/_4sdp"
+                                    android:background="@drawable/update_bank_ic"
+                                    android:backgroundTint="@color/primaryColor" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="@dimen/_20sdp"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:text="Update Bank Details"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12sdp" />
+
+                                <ImageView
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/_4sdp"
+                                    android:background="@drawable/ic_back" />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+<!--                        <Space-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="@dimen/_10sdp" />-->
+
+<!--                        <RelativeLayout-->
+<!--                            android:id="@+id/rlmyBank"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="@dimen/_40sdp">-->
+
+<!--                            <LinearLayout-->
+<!--                                android:gravity="center"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="@dimen/_40sdp">-->
+
+<!--                                <ImageView-->
+<!--                                    android:layout_width="@dimen/_22sdp"-->
+<!--                                    android:layout_height="@dimen/_22sdp"-->
+<!--                                    android:layout_centerVertical="true"-->
+<!--                                    android:layout_gravity="center"-->
+<!--                                    android:layout_marginLeft="@dimen/_4sdp"-->
+<!--                                    android:background="@drawable/ic_bank" />-->
+
+<!--                                <TextView-->
+<!--                                    android:layout_width="0dp"-->
+<!--                                    android:layout_weight="1"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_centerVertical="true"-->
+<!--                                    android:layout_marginLeft="@dimen/_20sdp"-->
+<!--                                    android:fontFamily="@font/poppins_medium"-->
+<!--                                    android:text="My Bank Account"-->
+<!--                                    android:textColor="@color/black"-->
+<!--                                    android:textSize="@dimen/_12sdp" />-->
+
+<!--                                <ImageView-->
+<!--                                    android:layout_width="@dimen/_22sdp"-->
+<!--                                    android:layout_height="@dimen/_22sdp"-->
+<!--                                    android:layout_centerVertical="true"-->
+<!--                                    android:layout_gravity="center"-->
+<!--                                    android:layout_marginLeft="@dimen/_4sdp"-->
+<!--                                    android:background="@drawable/ic_back" />-->
+<!--                            </LinearLayout>-->
+
+<!--                        </RelativeLayout>-->
+
+                        <Space
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_10sdp" />
+
+                        <RelativeLayout
+                            android:visibility="gone"
+                            android:id="@+id/rlRatingIncome"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp">
+
+                            <com.google.android.material.card.MaterialCardView
+                                app:cardCornerRadius="@dimen/_6sdp"
+                                app:cardBackgroundColor="@color/primaryColor"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp">
+
+
+                                <ImageView
+                                    android:layout_width="@dimen/_30sdp"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:layout_centerVertical="true"
+                                    />
+
+
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="@dimen/_50sdp"
+                                android:fontFamily="@font/poppins_medium"
+                                android:text="Rating Income"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <com.google.android.material.divider.MaterialDivider
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                app:dividerColor="@color/black"
+                                app:dividerThickness="1dp" />
+
+                        </RelativeLayout>
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_10sdp" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlCutomerSupport"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:visibility="gone">
+
+                            <ImageView
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_centerVertical="true"
+                                />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="@dimen/_50sdp"
+                                android:fontFamily="@font/poppins_medium"
+                                android:text="Customer Support"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <com.google.android.material.divider.MaterialDivider
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                app:dividerColor="@color/black"
+                                app:dividerThickness="1dp" />
+
+                        </RelativeLayout>
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_10sdp"
+                            android:visibility="gone" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlLogout"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp">
+
+                            <LinearLayout
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp">
+
+                                <ImageView
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/_4sdp"
+                                    android:background="@drawable/ic_log"
+                                    android:backgroundTint="@color/primaryColor" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="@dimen/_20sdp"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:text="Logout"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12sdp" />
+
+
+                                <ImageView
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/_4sdp"
+                                    android:background="@drawable/ic_back" />
+
+                            </LinearLayout>
+
+
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+            </RelativeLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp">
+
+    <!-- Add Floating Action Button here -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnFloatingAction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/_10sdp"
+        android:contentDescription="Add"
+        app:srcCompat="@drawable/ic_chat"
+        tools:ignore="HardcodedText,ObsoleteLayoutParam" /> <!-- Replace with your own icon -->
+
+    </RelativeLayout>
+
+</FrameLayout>

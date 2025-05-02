@@ -1,0 +1,27 @@
+pluginManagement {
+    plugins {
+        // --- keep or bump these two lines as needed -------------
+        id "com.android.application" version "8.9.0"
+        id "com.android.library"      version "8.9.0"
+        // --------------------------------------------------------
+
+        // --- THIS is the line that turns on JDK auto‑download ---
+        id "org.gradle.toolchains.foojay-resolver-convention" version "0.10.0"
+    }
+
+    repositories {
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
+        mavenCentral()
+        gradlePluginPortal()      // needed so Gradle can fetch the Foojay plugin
+    }
+}
+
+rootProject.name = "QR Card"
+    include ':app'
+
