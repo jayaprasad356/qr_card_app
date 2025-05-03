@@ -244,13 +244,7 @@ public class OutsourceJobPlanAdapter extends RecyclerView.Adapter<OutsourceJobPl
         public PlanViewHolder(@NonNull View itemView) {
             super(itemView);
             tvPlanName = itemView.findViewById(R.id.tvPlanName);
-            tvCourseCharges = itemView.findViewById(R.id.tvCourseCharges);
-            tvPerCode = itemView.findViewById(R.id.tvPerCode);
-            tvTitlePerCode = itemView.findViewById(R.id.tvTitlePerCode);
             tvMonthlyEarning = itemView.findViewById(R.id.tvMonthlyEarning);
-            tvTitleMonthEarning = itemView.findViewById(R.id.tvTitleMonthEarning);
-            tvMonthlyTarget = itemView.findViewById(R.id.tvMonthlyTarget);
-            tvTitleMonthlyTarget = itemView.findViewById(R.id.tvTitleMonthlyTarget);
             btActivatePlan = itemView.findViewById(R.id.btActivatePlan);
             btnZoom = itemView.findViewById(R.id.btnZoom);
             tvDescription = itemView.findViewById(R.id.tvDescription);

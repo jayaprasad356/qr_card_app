@@ -58,12 +58,9 @@ public class PlanListAdapter extends RecyclerView.Adapter<PlanListAdapter.PlanVi
                     RecyclerView.LayoutParams.MATCH_PARENT, RecyclerView.LayoutParams.WRAP_CONTENT));
 
             holder.tvPlanName.setText(plan.getName());
-            holder.tvDescription.setText(plan.getSub_description());
 
             holder.tvLink.setOnClickListener(v -> {
-                String url = plan.getActive_link(); // Replace with your URL
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(url));
                 activity.startActivity(intent);
             });
 

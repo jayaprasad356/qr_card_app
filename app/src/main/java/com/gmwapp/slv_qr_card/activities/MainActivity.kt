@@ -290,58 +290,50 @@ class MainActivity : AppCompatActivity() {
 //                            planObject.getString("per_code_rate"),
 //                            planObject.getString("daily_earnings")
                         )
-
-                        Log.d("Plan", "Plan")
-
-                        // Parse and save plan data
-                        val planArray = userObject.getJSONArray("plan_activated")
-                        val plans = mutableListOf<PlanListModel>()
-                        for (i in 0 until planArray.length()) {
-                            val planObject = planArray.getJSONObject(i)
-                            val plan = PlanListModel(
-                                planObject.getString("id"),
-                                planObject.getString("name"),
-                                planObject.getString("description"),
-                                planObject.getString("image"),
-                                planObject.getString("demo_video"),
-                                planObject.getString("monthly_codes"),
-                                planObject.getString("monthly_earnings"),
-                                planObject.getString("per_code_cost"),
-                                planObject.getString("price"),
-                                planObject.getString("type"),
-                                planObject.getString("min_refers"),
-                                "0",
-                                planObject.getString("sub_description"),
-                                planObject.getString("active_link"),
-                                0,
-                                0
-                            )
-                            plans.add(plan)
-                        }
-                        // Save the list of plans in session
-                        session!!.setPlanData(plans)
-
-                        Log.d("Plan", "Plan extra_plan_activated")
-
-                        Log.d("Plan", "Parsing extra_plan_activated")
-
-                        // Parse and save plan data
-                        val extraPlanArray = userObject.getJSONArray("extra_plan_activated")
-                        val extraPlans = mutableListOf<ExtraPlanModel>()
-                        for (i in 0 until extraPlanArray.length()) {
-                            val extraPlanObject = extraPlanArray.getJSONObject(i)
-                            val extraPlan = ExtraPlanModel(
-                                extraPlanObject.getString("id"),
-                                extraPlanObject.optString("name", "N/A"),
-                                extraPlanObject.optString("description", "N/A"),
-                                extraPlanObject.optString("price", "0"),
-                                "0" // Default status
-                            )
-                            extraPlans.add(extraPlan)
-                        }
-
-                        // Save the list of plans in session
-                        session?.setExtraPlanData(extraPlans)
+//
+//                        Log.d("Plan", "Plan")
+//
+//                        // Parse and save plan data
+//                        val planArray = userObject.getJSONArray("plan_activated")
+//                        val plans = mutableListOf<PlanListModel>()
+//                        for (i in 0 until planArray.length()) {
+//                            val planObject = planArray.getJSONObject(i)
+//                            val plan = PlanListModel(
+//                                planObject.getString("id"),
+//                                planObject.getString("name"),
+//                                planObject.getString("description"),
+//                                planObject.getString("image"),
+//                                planObject.getString("demo_video"),
+//                                planObject.getString("monthly_codes"),
+//                                planObject.getString("monthly_earnings"),
+//                                planObject.getString("per_code_cost"),0
+//                            )
+//                            plans.add(plan)
+//                        }
+//                        // Save the list of plans in session
+//                        session!!.setPlanData(plans)
+//
+//                        Log.d("Plan", "Plan extra_plan_activated")
+//
+//                        Log.d("Plan", "Parsing extra_plan_activated")
+//
+//                        // Parse and save plan data
+//                        val extraPlanArray = userObject.getJSONArray("extra_plan_activated")
+//                        val extraPlans = mutableListOf<ExtraPlanModel>()
+//                        for (i in 0 until extraPlanArray.length()) {
+//                            val extraPlanObject = extraPlanArray.getJSONObject(i)
+//                            val extraPlan = ExtraPlanModel(
+//                                extraPlanObject.getString("id"),
+//                                extraPlanObject.optString("name", "N/A"),
+//                                extraPlanObject.optString("description", "N/A"),
+//                                extraPlanObject.optString("price", "0"),
+//                                "0" // Default status
+//                            )
+//                            extraPlans.add(extraPlan)
+//                        }
+//
+//                        // Save the list of plans in session
+//                        session?.setExtraPlanData(extraPlans)
 
 
                     } else {
