@@ -87,6 +87,7 @@ public class Session {
             String free_plan_status,
             String paid_plan_status,
             String ad_link,
+            String worked_days,
             String refund_wallet
 //            String planName,
 //            String planDescription,
@@ -138,6 +139,7 @@ public class Session {
         editor.putString(Constant.FREE_PLAN_STATUS, free_plan_status);
         editor.putString(Constant.PAID_PLAN_STATUS, paid_plan_status);
         editor.putString(Constant.AD_LINK, ad_link);
+        editor.putString(Constant.WORKED_DAYS, worked_days);
         editor.putString(Constant.REFUND_WALLET, refund_wallet);
 //        editor.putString(Constant.PLAN_NAME, planName);
 //        editor.putString(Constant.PLAN_DESCRIPTION, planDescription);

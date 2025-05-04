@@ -53,6 +53,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_5sdp"
             android:layout_width="wrap_content"
+            android:visibility="gone"
             android:layout_height="@dimen/_35sdp"
             android:text="@string/faq"
             android:fontFamily="@font/poppins_semibold"
@@ -63,7 +64,7 @@
             android:background="@drawable/button_bg"/>
 
         <com.google.android.material.button.MaterialButton
-            android:visibility="visible"
+            android:visibility="gone"
             android:layout_alignParentEnd="true"
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"

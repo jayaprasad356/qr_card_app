@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.WorkActivity">
+
+    <LinearLayout
+        android:id="@+id/card_type2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_gravity="center">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/rlSelectPlan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                app:cardCornerRadius="@dimen/_15sdp"
+                app:cardBackgroundColor="@color/primaryLightestColor"
+                app:cardUseCompatPadding="false">
+
+                <TextView
+                    android:id="@+id/tvPlanName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:text=""
+                    android:textColor="@color/textColor"
+                    android:fontFamily="@font/poppins_bold"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/_12sdp"
+                    android:textAlignment="center"/>
+
+                <!--                <Spinner-->
+                <!--                    android:id="@+id/dropdownSpinner"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_margin="@dimen/_10sdp"-->
+                <!--                    android:backgroundTint="@color/logo_blue"-->
+                <!--                    android:spinnerMode="dropdown"/>-->
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rlSync">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_15sdp"
+                app:cardBackgroundColor="@color/primaryLightestColor"
+                app:cardUseCompatPadding="false">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="@dimen/_10sdp">
+
+                    <LinearLayout
+                        android:id="@+id/llData"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="start"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <com.google.android.material.progressindicator.CircularProgressIndicator
+                                    android:id="@+id/cbCodes"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    app:indicatorColor="@color/primaryColor"
+                                    app:indicatorSize="@dimen/_30sdp"
+                                    app:trackColor="@color/secondaryColor"
+                                    app:trackCornerRadius="@dimen/_100sdp"
+                                    app:trackThickness="@dimen/_5sdp" />
+
+
+                                <TextView
+                                    android:id="@+id/tvCodes"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAlignment="center"
+                                    android:text="0"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:textColor="@color/textColor"
+                                    android:textSize="@dimen/_20sdp"
+                                    android:textStyle="bold" />
+
+                                <!--                    <TextView-->
+                                <!--                        android:id="@+id/tvsync_unique_id"-->
+                                <!--                        android:layout_width="wrap_content"-->
+                                <!--                        android:layout_height="wrap_content"-->
+                                <!--                        android:text=""-->
+                                <!--                        android:textColor="@color/white"-->
+                                <!--                        android:layout_gravity="center"-->
+                                <!--                        android:textSize="@dimen/_10sdp"/>-->
+
+                            </LinearLayout>
+
+                            <com.google.android.material.button.MaterialButton
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:id="@+id/btnSyncNow"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_30sdp"
+                                android:text="@string/submit"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_10sdp"
+                                android:textAllCaps="false"
+                                android:enabled="false"
+                                app:backgroundTint="@null"
+                                android:background="@drawable/enamble_disable_button"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginStart="@dimen/_10sdp">
+
+                            <!--                            <LinearLayout-->
+                            <!--                                android:layout_width="match_parent"-->
+                            <!--                                android:layout_height="wrap_content"-->
+                            <!--                                android:padding="@dimen/_5sdp"-->
+                            <!--                                android:layout_marginRight="@dimen/_30sdp"-->
+                            <!--                                android:background="@drawable/box"-->
+                            <!--                                android:orientation="vertical">-->
+                            <!--                                <TextView-->
+                            <!--                                    android:layout_width="wrap_content"-->
+                            <!--                                    android:layout_height="wrap_content"-->
+                            <!--                                    android:text="@string/earning_wallet"-->
+                            <!--                                    android:textColor="@color/textColor"-->
+                            <!--                                    android:fontFamily="@font/poppins_bold"-->
+                            <!--                                    android:layout_gravity="center"-->
+                            <!--                                    android:textSize="@dimen/_8sdp"/>-->
+
+                            <!--                                <TextView-->
+                            <!--                                    android:id="@+id/tvEarningWallet"-->
+                            <!--                                    android:layout_width="wrap_content"-->
+                            <!--                                    android:layout_height="wrap_content"-->
+                            <!--                                    android:layout_gravity="center"-->
+                            <!--                                    android:textColor="@color/primaryColor"-->
+                            <!--                                    android:fontFamily="@font/poppins_bold"-->
+                            <!--                                    android:textSize="@dimen/_15sdp"-->
+                            <!--                                    android:textStyle="bold"-->
+                            <!--                                    tools:text="₹0" />-->
+
+                            <!--                            </LinearLayout>-->
+
+                            <!--                            <Space-->
+                            <!--                                android:layout_width="match_parent"-->
+                            <!--                                android:layout_height="@dimen/_8sdp"/>-->
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                tools:ignore="UselessParent">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:layout_marginEnd="@dimen/_5sdp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/today_data"
+                                        android:fontFamily="@font/poppins_bold"
+                                        android:textColor="@color/textColor"
+                                        android:textSize="@dimen/_10sdp"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/total_data"
+                                        android:fontFamily="@font/poppins_bold"
+                                        android:textColor="@color/textColor"
+                                        android:textSize="@dimen/_10sdp"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/poppins_bold"
+                                        android:text="@string/worked_days"
+                                        android:textColor="@color/textColor"
+                                        android:textSize="@dimen/_10sdp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:layout_marginRight="@dimen/_5sdp">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="-"
+                                        android:textColor="@color/textColor"
+                                        android:fontFamily="@font/poppins_bold"
+                                        android:textSize="@dimen/_10sdp" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="-"
+                                        android:textColor="@color/textColor"
+                                        android:fontFamily="@font/poppins_bold"
+                                        android:textSize="@dimen/_10sdp" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="-"
+                                        android:textColor="@color/textColor"
+                                        android:fontFamily="@font/poppins_bold"
+                                        android:textSize="@dimen/_10sdp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/tvTodayCodes"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="0"
+                                        android:fontFamily="@font/poppins_bold"
+                                        android:textSize="@dimen/_10sdp"
+                                        android:textColor="@color/primaryColor"/>
+
+                                    <TextView
+                                        android:id="@+id/tvTotalCodes"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="0"
+                                        android:fontFamily="@font/poppins_bold"
+                                        android:textSize="@dimen/_10sdp"
+                                        android:textColor="@color/primaryColor"/>
+
+                                    <TextView
+                                        android:id="@+id/tvWorkedDays"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="0"
+                                        android:fontFamily="@font/poppins_bold"
+                                        android:textSize="@dimen/_10sdp"
+                                        android:textColor="@color/primaryColor"/>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvCompanyName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/company_name"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_10sdp"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_marginStart="@dimen/_10sdp"/>
+
+            <com.gmwapp.slv_qr_card.helper.NoPasteEditText
+                android:id="@+id/edCompanyName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:longClickable="false"
+                android:importantForAutofill="no"
+                android:background="@drawable/ed_bg"
+                android:inputType="text"
+                android:padding="@dimen/_10sdp" />
+
+            <!--                    <EditText-->
+            <!--                        android:id="@+id/edSchoolName"-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:longClickable="false"-->
+            <!--                        android:background="@drawable/ed_bg"-->
+            <!--                        android:padding="@dimen/_10sdp" />-->
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_10sdp"/>
+
+            <TextView
+                android:id="@+id/tvCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/city"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_10sdp"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_marginStart="@dimen/_10sdp"/>
+
+            <com.gmwapp.slv_qr_card.helper.NoPasteEditText
+                android:id="@+id/edCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:longClickable="false"
+                android:importantForAutofill="no"
+                android:textIsSelectable="false"
+                android:background="@drawable/ed_bg"
+                android:padding="@dimen/_10sdp"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_10sdp"/>
+
+            <TextView
+                android:id="@+id/tvCountry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/country"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_10sdp"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_marginStart="@dimen/_10sdp"/>
+
+            <com.gmwapp.slv_qr_card.helper.NoPasteEditText
+                android:id="@+id/edCountry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:longClickable="false"
+                android:importantForAutofill="no"
+                android:textIsSelectable="false"
+                android:background="@drawable/ed_bg"
+                android:padding="@dimen/_10sdp"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_10sdp"/>
+
+            <TextView
+                android:id="@+id/tvWebsite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/website"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_10sdp"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_marginStart="@dimen/_10sdp"/>
+
+            <com.gmwapp.slv_qr_card.helper.NoPasteEditText
+                android:id="@+id/edWebsite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:longClickable="false"
+                android:importantForAutofill="no"
+                android:textIsSelectable="false"
+                android:background="@drawable/ed_bg"
+                android:padding="@dimen/_10sdp"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_10sdp"/>
+
+            <TextView
+                android:id="@+id/tvEmailId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/email_id"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_10sdp"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_marginStart="@dimen/_10sdp"/>
+
+            <com.gmwapp.slv_qr_card.helper.NoPasteEditText
+                android:id="@+id/edEmailId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:longClickable="false"
+                android:importantForAutofill="no"
+                android:textIsSelectable="false"
+                android:background="@drawable/ed_bg"
+                android:padding="@dimen/_10sdp"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_10sdp"/>
+
+            <TextView
+                android:id="@+id/tvZipCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/zip_code"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_10sdp"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_marginStart="@dimen/_10sdp"/>
+
+            <LinearLayout
+                android:id="@+id/root_zipCode_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="6">
+
+                <com.gmwapp.slv_qr_card.helper.NoPasteEditText
+                    android:id="@+id/zip_code_box1"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_weight="1"
+                    android:longClickable="false"
+                    android:importantForAutofill="no"
+                    android:textIsSelectable="false"
+                    android:background="@drawable/ed_bg"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:maxLength="1"/>
+
+                <!--                            <EditText-->
+                <!--                                android:id="@+id/dob_edit_box1"-->
+                <!--                                android:layout_width="0dp"-->
+                <!--                                android:layout_height="@dimen/_35sdp"-->
+                <!--                                android:layout_weight="1"-->
+                <!--                                android:background="@drawable/ed_bg"-->
+                <!--                                android:gravity="center"-->
+                <!--                                android:inputType="number"-->
+                <!--                                android:layout_marginEnd="@dimen/_4sdp"-->
+                <!--                                android:maxLength="1"/>-->
+
+                <com.gmwapp.slv_qr_card.helper.NoPasteEditText
+                    android:id="@+id/zip_code_box2"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_weight="1"
+                    android:longClickable="false"
+                    android:importantForAutofill="no"
+                    android:textIsSelectable="false"
+                    android:background="@drawable/ed_bg"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:maxLength="1"/>
+
+                <com.gmwapp.slv_qr_card.helper.NoPasteEditText
+                    android:id="@+id/zip_code_box3"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_weight="1"
+                    android:longClickable="false"
+                    android:importantForAutofill="no"
+                    android:textIsSelectable="false"
+                    android:background="@drawable/ed_bg"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:maxLength="1"/>
+
+                <com.gmwapp.slv_qr_card.helper.NoPasteEditText
+                    android:id="@+id/zip_code_box4"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_weight="1"
+                    android:longClickable="false"
+                    android:importantForAutofill="no"
+                    android:textIsSelectable="false"
+                    android:background="@drawable/ed_bg"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:maxLength="1"/>
+
+                <com.gmwapp.slv_qr_card.helper.NoPasteEditText
+                    android:id="@+id/zip_code_box5"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_weight="1"
+                    android:longClickable="false"
+                    android:importantForAutofill="no"
+                    android:textIsSelectable="false"
+                    android:background="@drawable/ed_bg"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:maxLength="1"/>
+
+                <com.gmwapp.slv_qr_card.helper.NoPasteEditText
+                    android:id="@+id/zip_code_box6"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_weight="1"
+                    android:longClickable="false"
+                    android:importantForAutofill="no"
+                    android:textIsSelectable="false"
+                    android:background="@drawable/ed_bg"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:maxLength="1"/>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_10sdp"/>
+
+            <TextView
+                android:id="@+id/tvBusinessId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_00000_aaaaaaaaaa"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_10sdp"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_marginStart="@dimen/_10sdp"/>
+
+            <com.gmwapp.slv_qr_card.helper.NoPasteEditText
+                android:id="@+id/edBusinessId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:longClickable="false"
+                android:importantForAutofill="no"
+                android:background="@drawable/ed_bg"
+                android:inputType="none"
+                android:padding="@dimen/_10sdp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llCreateLoader"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:background="@drawable/enamble_disable_button"
+            android:layout_marginHorizontal="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp">
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminate="true"
+                app:indicatorColor="@color/white"
+                app:indicatorSize="@dimen/_20sdp"
+                app:trackThickness="@dimen/_2sdp" />
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btCreate"
+            android:layout_marginHorizontal="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:text="@string/create"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp"
+            android:textAllCaps="false"
+            app:backgroundTint="@null"
+            android:background="@drawable/enamble_disable_button"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAutoFill"
+            android:layout_marginHorizontal="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:text="Auto Fill"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp"
+            android:textAllCaps="false"
+            app:backgroundTint="@color/primaryColor"
+            android:background="@drawable/enamble_disable_button"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_120sdp"/>
+
+    </LinearLayout>
+
+</ScrollView>

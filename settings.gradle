@@ -7,6 +7,7 @@ pluginManagement {
 
         // --- THIS is the line that turns on JDK auto‑download ---
         id "org.gradle.toolchains.foojay-resolver-convention" version "0.10.0"
+        id 'org.jetbrains.kotlin.android' version '1.9.25'
     }
 
     repositories {

@@ -50,11 +50,6 @@ class NewProfileFragment : Fragment() {
     var rlWithdraw: RelativeLayout? = null
     var rlUpdateBank: RelativeLayout? = null
     var tvPlanActivate: TextView? = null
-    var tvTotalCodesIncome: TextView? = null
-    var tvReferralIncome: TextView? = null
-//    var tvTotalEarning: TextView? = null
-//    var tvTodayEarning: TextView? = null
-    var tvWalletBalance: TextView? = null
     var btnFloatingAction: FloatingActionButton? = null
 
     @SuppressLint("SetTextI18n")
@@ -102,11 +97,6 @@ class NewProfileFragment : Fragment() {
         rlWithdraw = root.findViewById(R.id.rlWithdraw)
         rlUpdateBank = root.findViewById(R.id.rlUpdateBank)
 //        tvPlanActivate = root.findViewById(R.id.tvPlanActivate)
-        tvTotalCodesIncome = root.findViewById(R.id.tvTotalCodesIncome)
-        tvReferralIncome = root.findViewById(R.id.tvReferralIncome)
-//        tvTotalEarning = root.findViewById(R.id.tvTotalEarning)
-//        tvTodayEarning = root.findViewById(R.id.tvTodayEarning)
-        tvWalletBalance = root.findViewById(R.id.tvWalletBalance)
         btnFloatingAction = root.findViewById(R.id.btnFloatingAction)
 
 //        var planName = session!!.getData(Constant.PLAN_NAME)
@@ -117,11 +107,6 @@ class NewProfileFragment : Fragment() {
 //            tvPlanActivate!!.text = planName
 //        }
 
-        tvTotalCodesIncome!!.text = "₹${session!!.getData(Constant.TOTAL_CODES_INCOME)}"
-        tvReferralIncome!!.text = "₹${session!!.getData(Constant.TOTAL_REFERRAL_INCOME)}"
-//        tvTotalEarning!!.text = "₹${session!!.getData(Constant.TOTAL_EARNINGS)}"
-//        tvTodayEarning!!.text = "₹${session!!.getData(Constant.TODAY_EARNINGS)}"
-        tvWalletBalance!!.text = "₹${session!!.getData(Constant.BALANCE)}"
 
 //        rlwithdrawhistory!!.setOnClickListener(View.OnClickListener {
 //            // Replace current fragment with withdrawalHistoryFragment

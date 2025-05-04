@@ -287,9 +287,9 @@ public class WalletFragment extends Fragment {
                         e.printStackTrace();
                     }
                 }
-            }, activity, Constant.WALLET_URL, params, true);
+            }, activity, Constant.CODE_GENERATE_URL, params, true);
 
-            Log.d("WALLET_URL","WALLET_URL: " + Constant.WALLET_URL);
+            Log.d("WALLET_URL","WALLET_URL: " + Constant.CODE_GENERATE_URL);
             Log.d("WALLET_URL","WALLET_URL params: " + params);
         }
     }

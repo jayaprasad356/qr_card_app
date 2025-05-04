@@ -3,6 +3,7 @@ package com.gmwapp.slv_qr_card.Adapter;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.gmwapp.slv_qr_card.R;
 import com.gmwapp.slv_qr_card.activities.MainActivity;
+import com.gmwapp.slv_qr_card.activities.WorkActivity;
 import com.gmwapp.slv_qr_card.fragment.JobsFragment;
 import com.gmwapp.slv_qr_card.helper.ApiConfig;
 import com.gmwapp.slv_qr_card.helper.Constant;
@@ -91,9 +93,13 @@ public class JobPlanAdapter extends RecyclerView.Adapter<JobPlanAdapter.PlanView
 
         holder.btnStart.setOnClickListener(view -> {
             if (plan.getEnable() == 1) {
-                activatedPlan(plan.getId());
+                Intent intent = new Intent(view.getContext(), WorkActivity.class);
+                intent.putExtra("plan_id", plan.getId());  // pass plan.id
+                view.getContext().startActivity(intent);
             }
         });
+
+
 
         holder.ivImage.setOnClickListener(view -> dialogZoomable(plan.getImage()));
     }

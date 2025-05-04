@@ -50,7 +50,7 @@ public class Constant {
     public static final String IMPORT_DATA_URL = BaseUrl + "import_data.php";
     public static final String REGISTER_URL = BaseUrl + "register.php";
     public static final String OTP_URL = BaseUrl + "send_otp.php";
-    public static final String WALLET_URL = BaseUrl + "wallet.php";
+    public static final String CODE_GENERATE_URL = BaseUrl + "code_generate.php";
     public static final String UPDATE_PROFILE = BaseUrl + "update_profile.php";
     public static final String UPDATE_USER_URL = BaseUrl + "updateuser.php";
     public static final String USER_DETAILS_URL = BaseUrl + "userdetails.php";

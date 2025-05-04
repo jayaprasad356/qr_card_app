@@ -282,13 +282,8 @@ class MainActivity : AppCompatActivity() {
                             userObject.getString(Constant.FREE_PLAN),
                             userObject.getString(Constant.PAID_PLAN),
                             userObject.getString(Constant.AD_LINK),
+                            userObject.getString(Constant.WORKED_DAYS),
                             "",
-//                            planObject.getString("name"),
-//                            planObject.getString("description"),
-//                            planObject.getString("validity"),
-//                            planObject.getString("daily_codes"),
-//                            planObject.getString("per_code_rate"),
-//                            planObject.getString("daily_earnings")
                         )
 //
 //                        Log.d("Plan", "Plan")
