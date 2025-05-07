@@ -634,6 +634,7 @@
             android:textColor="@color/white"
             android:textSize="@dimen/_12sdp"
             android:textAllCaps="false"
+            android:visibility="gone"
             app:backgroundTint="@color/primaryColor"
             android:background="@drawable/enamble_disable_button"/>
 

@@ -58,8 +58,9 @@ class WorkActivity : AppCompatActivity() {
     private val maxCodeCount = 50
 
     private var session: Session? = null
-
     private var planId: String? = null
+    private val sampleDataList = mutableListOf<Map<String, String>>()  // to store data from CSV
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,14 +68,21 @@ class WorkActivity : AppCompatActivity() {
 
         session = Session(this)
 
+        // 🔥 Load saved code count from session
+        codeCount = session!!.getData("CURRENT_CODE_COUNT").toIntOrNull() ?: 0
+
         // 🔥 Get the plan ID from intent
         planId = intent.getStringExtra("plan_id")
         Log.d("WorkActivity", "Received plan_id: $planId")
+        loadCsvData()
 
         initViews()
         setRandomSamples()
         setupZipCodeAutoMove()
         updateProgress()
+
+
+
 
         tvTodayCodes!!.text = session!!.getData(Constant.TODAY_CODES)
         tvTotalCodes!!.text = session!!.getData(Constant.TOTAL_CODES)
@@ -100,22 +108,7 @@ class WorkActivity : AppCompatActivity() {
         }
 
         btnAutoFill!!.setOnClickListener {
-            edCompanyName!!.setText(tvCompanyName!!.text.toString())
-            edCity!!.setText(tvCity!!.text.toString())
-            edCountry!!.setText(tvCountry!!.text.toString())
-            edWebsite!!.setText(tvWebsite!!.text.toString())
-            edEmailId!!.setText(tvEmailId!!.text.toString())
-            edBusinessId!!.setText(tvBusinessId!!.text.toString())
-
-            val zip = tvZipCode!!.text.toString()
-            if (zip.length == 6) {
-                zipBox1!!.setText(zip[0].toString())
-                zipBox2!!.setText(zip[1].toString())
-                zipBox3!!.setText(zip[2].toString())
-                zipBox4!!.setText(zip[3].toString())
-                zipBox5!!.setText(zip[4].toString())
-                zipBox6!!.setText(zip[5].toString())
-            }
+            autoFillInputs()
         }
     }
 
@@ -163,15 +156,38 @@ class WorkActivity : AppCompatActivity() {
         autoMove(zipBox5!!, zipBox4, zipBox6)
         autoMove(zipBox6!!, zipBox5, null)
     }
+    private fun loadCsvData() {
+        try {
+            val inputStream = assets.open("companies_data.csv")
+            val reader = inputStream.bufferedReader()
+            val lines = reader.readLines()
+            val header = lines.first().split(",")
 
-    private fun autoMove(
-        current: NoPasteEditText,
-        previous: NoPasteEditText?,
-        next: NoPasteEditText?
-    ) {
+            for (line in lines.drop(1)) {
+                val values = line.split(",")
+                if (values.size >= 7) {
+                    val dataMap = mapOf(
+                        "company_name" to values[0].trim(),
+                        "city" to values[1].trim(),
+                        "county_name" to values[2].trim(),   // ✅ new line for country_name
+                        "parent_zip" to values[3].trim(),
+                        "business_id" to values[4].trim(),
+                        "website" to values[5].trim(),
+                        "support_email" to values[6].trim()
+                    )
+
+                    sampleDataList.add(dataMap)
+                }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+
+    private fun autoMove(current: NoPasteEditText, previous: NoPasteEditText?, next: NoPasteEditText?) {
         current.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (s != null && s.length == 1 && next != null) {
                     next.requestFocus()
@@ -179,7 +195,6 @@ class WorkActivity : AppCompatActivity() {
                     previous.requestFocus()
                 }
             }
-
             override fun afterTextChanged(s: Editable?) {}
         })
     }
@@ -205,6 +220,7 @@ class WorkActivity : AppCompatActivity() {
             return
         }
 
+        // 🔍 Validation checks
         if (!company.equals(tvCompanyName!!.text.toString().trim(), ignoreCase = true)) {
             showError("Company name is not matching")
         } else if (!city.equals(tvCity!!.text.toString().trim(), ignoreCase = true)) {
@@ -223,10 +239,12 @@ class WorkActivity : AppCompatActivity() {
             if (codeCount < maxCodeCount) {
                 val increment = if (planId == "3") 2 else 1
                 codeCount += increment
-
                 if (codeCount > maxCodeCount) {
                     codeCount = maxCodeCount
                 }
+
+                // 🔥 Save updated code count
+                session!!.setData("CURRENT_CODE_COUNT", codeCount.toString())
 
                 updateProgress()
                 clearInputs()
@@ -241,6 +259,9 @@ class WorkActivity : AppCompatActivity() {
                         "Code created successfully!"
                     }
                     Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                    // ✅ Show dialog popup
+                    showQrSuccessDialog()
+
                 }
             } else {
                 Toast.makeText(this, "You already created 50 codes. Please sync.", Toast.LENGTH_SHORT).show()
@@ -282,7 +303,9 @@ class WorkActivity : AppCompatActivity() {
                 tvTodayCodes!!.text = session!!.getData(Constant.TODAY_CODES)
                 tvTotalCodes!!.text = session!!.getData(Constant.TOTAL_CODES)
 
+                // ✅ Reset counter after sync
                 codeCount = 0
+                session!!.setData("CURRENT_CODE_COUNT", "0")
                 updateProgress()
                 setRandomSamples()
 
@@ -322,6 +345,11 @@ class WorkActivity : AppCompatActivity() {
 
         btCreate!!.isEnabled = codeCount < maxCodeCount
 
+        // ✅ Enable Sync button if codes are 50 or more (not for Trial plan)
+        if (planId != "1") {
+            btnSyncNow!!.isEnabled = codeCount >= maxCodeCount
+        }
+
         val apiTodayCount = session!!.getData(Constant.TODAY_CODES).toIntOrNull() ?: 0
         val displayToday = if (codeCount > 0) "$apiTodayCount + $codeCount" else "$apiTodayCount"
         tvTodayCodes!!.text = displayToday
@@ -330,53 +358,106 @@ class WorkActivity : AppCompatActivity() {
         val displayTotal = if (codeCount > 0) "$apiTotalCount + $codeCount" else "$apiTotalCount"
         tvTotalCodes!!.text = displayTotal
     }
+    private fun showQrSuccessDialog() {
+        val dialogView = layoutInflater.inflate(R.layout.dialog_qr_success, null)
+        val dialog = android.app.AlertDialog.Builder(this)
+            .setView(dialogView)
+            .setCancelable(false)  // Cannot close manually
+            .create()
 
-    private fun setRandomSamples() {
-        val companySamples = arrayOf(
-            "TechNova", "InnoWorks", "FutureCorp", "Skyline Ltd", "QuantumSoft",
-            "BrightPath", "NeonWave", "Visionary Inc", "AlphaOmega", "GlobeTech"
-        )
-        val citySamples = arrayOf(
-            "Mumbai", "Chennai", "Bangalore", "Hyderabad", "Delhi",
-            "Kolkata", "Pune", "Coimbatore", "Ahmedabad", "Jaipur"
-        )
-        val countrySamples = arrayOf(
-            "India", "USA", "UK", "Canada", "Australia",
-            "Germany", "France", "Japan", "Singapore", "Brazil"
-        )
-        val websiteSamples = arrayOf(
-            "www.technova.com", "www.innoworks.io", "www.futurecorp.net", "www.skyline.co",
-            "www.quantumsoft.org", "www.brightpath.in", "www.neonwave.app", "www.visionary.com",
-            "www.alphaomega.biz", "www.globetech.io"
-        )
-        val emailSamples = arrayOf(
-            "contact@technova.com",
-            "info@innoworks.io",
-            "hello@futurecorp.net",
-            "support@skyline.co",
-            "admin@quantumsoft.org",
-            "team@brightpath.in",
-            "mail@neonwave.app",
-            "reach@visionary.com",
-            "sales@alphaomega.biz",
-            "help@globetech.io"
-        )
-        val zipCodeSamples = arrayOf(
-            "110001", "400001", "560001", "600001", "700001",
-            "500001", "380001", "682001", "302001", "751001"
-        )
-        val businessIdSamples = arrayOf(
-            "00001-ABCDE", "12345-XYZAB", "99999-HELLO", "54321-ALPHA",
-            "22222-BRAVO", "11111-DELTA", "33333-ECHO", "44444-FOXTROT",
-            "55555-GOLF", "66666-HOTEL"
-        )
+        dialog.show()
 
-        tvCompanyName!!.text = companySamples.random()
-        tvCity!!.text = citySamples.random()
-        tvCountry!!.text = countrySamples.random()
-        tvWebsite!!.text = websiteSamples.random()
-        tvEmailId!!.text = emailSamples.random()
-        tvZipCode!!.text = zipCodeSamples.random()
-        tvBusinessId!!.text = businessIdSamples.random()
+        // Auto dismiss after 2 seconds
+        dialogView.postDelayed({
+            if (dialog.isShowing) {
+                dialog.dismiss()
+            }
+        }, 2000)
     }
+
+
+    private fun autoFillInputs() {
+        edCompanyName!!.setText(tvCompanyName!!.text.toString())
+        edCity!!.setText(tvCity!!.text.toString())
+        edCountry!!.setText(tvCountry!!.text.toString())
+        edWebsite!!.setText(tvWebsite!!.text.toString())
+        edEmailId!!.setText(tvEmailId!!.text.toString())
+        edBusinessId!!.setText(tvBusinessId!!.text.toString())
+
+        val zip = tvZipCode!!.text.toString()
+        if (zip.length == 6) {
+            zipBox1!!.setText(zip[0].toString())
+            zipBox2!!.setText(zip[1].toString())
+            zipBox3!!.setText(zip[2].toString())
+            zipBox4!!.setText(zip[3].toString())
+            zipBox5!!.setText(zip[4].toString())
+            zipBox6!!.setText(zip[5].toString())
+        }
+    }
+    private fun setRandomSamples() {
+        if (sampleDataList.isNotEmpty()) {
+            val randomData = sampleDataList.random()
+
+            tvCompanyName!!.text = randomData["company_name"]
+            tvCity!!.text = randomData["city"]
+            tvCountry!!.text = randomData["county_name"]  // ✅ use county_name now
+            tvWebsite!!.text = randomData["website"]
+            tvEmailId!!.text = randomData["support_email"]
+            tvZipCode!!.text = randomData["parent_zip"]
+            tvBusinessId!!.text = randomData["business_id"]
+
+        } else {
+            Toast.makeText(this, "No sample data found!", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
+//    private fun setRandomSamples() {
+//        val companySamples = arrayOf(
+//            "TechNova", "InnoWorks", "FutureCorp", "Skyline Ltd", "QuantumSoft",
+//            "BrightPath", "NeonWave", "Visionary Inc", "AlphaOmega", "GlobeTech"
+//        )
+//        val citySamples = arrayOf(
+//            "Mumbai", "Chennai", "Bangalore", "Hyderabad", "Delhi",
+//            "Kolkata", "Pune", "Coimbatore", "Ahmedabad", "Jaipur"
+//        )
+//        val countrySamples = arrayOf(
+//            "India", "USA", "UK", "Canada", "Australia",
+//            "Germany", "France", "Japan", "Singapore", "Brazil"
+//        )
+//        val websiteSamples = arrayOf(
+//            "www.technova.com", "www.innoworks.io", "www.futurecorp.net", "www.skyline.co",
+//            "www.quantumsoft.org", "www.brightpath.in", "www.neonwave.app", "www.visionary.com",
+//            "www.alphaomega.biz", "www.globetech.io"
+//        )
+//        val emailSamples = arrayOf(
+//            "contact@technova.com",
+//            "info@innoworks.io",
+//            "hello@futurecorp.net",
+//            "support@skyline.co",
+//            "admin@quantumsoft.org",
+//            "team@brightpath.in",
+//            "mail@neonwave.app",
+//            "reach@visionary.com",
+//            "sales@alphaomega.biz",
+//            "help@globetech.io"
+//        )
+//        val zipCodeSamples = arrayOf(
+//            "110001", "400001", "560001", "600001", "700001",
+//            "500001", "380001", "682001", "302001", "751001"
+//        )
+//        val businessIdSamples = arrayOf(
+//            "00001-ABCDE", "12345-XYZAB", "99999-HELLO", "54321-ALPHA",
+//            "22222-BRAVO", "11111-DELTA", "33333-ECHO", "44444-FOXTROT",
+//            "55555-GOLF", "66666-HOTEL"
+//        )
+//
+//        tvCompanyName!!.text = companySamples.random()
+//        tvCity!!.text = citySamples.random()
+//        tvCountry!!.text = countrySamples.random()
+//        tvWebsite!!.text = websiteSamples.random()
+//        tvEmailId!!.text = emailSamples.random()
+//        tvZipCode!!.text = zipCodeSamples.random()
+//        tvBusinessId!!.text = businessIdSamples.random()
+//    }
 }
